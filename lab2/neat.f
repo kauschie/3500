@@ -1,7 +1,9 @@
 C ********************************************************************
+C Name: Michael Kausch
+C ASGT: Activity 2
 C ORGN: CSUB - CMPS 3500
-C FILE: spaghetti.f
-C DATE: 09/10/2021
+C FILE: neat.f
+C DATE: 02/14/23
 C ********************************************************************
 C     Declare an 20 variable array, begins with N so they're integers      
       DIMENSION NUMS(20)
@@ -12,13 +14,13 @@ C     Declare variable N which is initialized to 1
       N = 1
 
 C     Gets user 3 digit integer user input
-10    READ 15, IN
+10    READ 15, INPUT
 15    FORMAT(I3)
 
 C     IF the value is -1, go to the sort sequence, otherwise
 C     continue gather numbers into the nums array
-      IF(IN + 1) 20,40,20
-20    NUMS(N) = IN
+      IF(INPUT + 1) 20,40,20
+20    NUMS(N) = INPUT
 
 C     If this is the 15th variable entered (max) then begin sort
       IF(N - 15) 25,70,70
@@ -36,6 +38,7 @@ C     IF sorting is done begin printing
       IF(ISTART - ISTOP) 50, 110, 110
 
 C     If left num is less than right num swap them
+C     J is a temp variable used for the swap
 50    IF(NUMS(ISCAN) - NUMS(ISCAN+1)) 90,90,60
 60    J = NUMS(ISCAN)
       NUMS(ISCAN) = NUMS(ISCAN+1)
