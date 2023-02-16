@@ -15,16 +15,16 @@ C ********************************************************************
 
       MODULE PFUNC
       CONTAINS
-      FUNCTION Power(mat_in, p) result (r)
+      FUNCTION Power(mat_in, exponent) result (result)
 C           Variables
-            DOUBLE PRECISION, dimension(5,5) :: r
+            DOUBLE PRECISION, dimension(5,5) :: result
             REAL, dimension(5,5), intent(in) :: mat_in
-            INTEGER, intent(in) :: p
+            INTEGER, intent(in) :: exponent
       
-            r = mat_in
+            result = mat_in
             
-            DO 100 I=1,p-1
-                  r = matmul(r, mat_in)
+            DO 100 I=1,exponent-1
+                  result = matmul(result, mat_in)
 100         CONTINUE
       END FUNCTION Power
       END MODULE PFUNC
@@ -45,7 +45,6 @@ C     Define variables as arrays of 2 and 1 dimensions
      
       REAL matrix1(5,5), matrix2(5,5), vector1(5)
       REAL prod1(5,5), prod2(5,5), transp1(5,5), transp2(5,5)
-      REAL dot_prod(5,5)
       DOUBLE PRECISION mat_power1(5,5), mat_power2(5,5), op1(5,5)
       INTEGER SIZE1, SIZE2, SIZE3, I
       REAL, ALLOCATABLE :: mtemp1(:), mtemp2(:), mtemp3(:)
@@ -158,8 +157,7 @@ C     Power function on m1, m2
       
       
 C     Nested function calls using power function
-      op1 = Power(transpose(prod1),25)     !??
-C      dot_prod = dot_product(vector1, mat_prod2) !??
+      op1 = Power(transpose(prod1),25) 
 
 
 C     ****************************************
