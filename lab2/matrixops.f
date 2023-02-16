@@ -188,7 +188,7 @@ C     Printing outputs
       write( *, 2000) ((prod1(i,j),j=1,5),i=1,5)
       print *
 
-      write(*,*) ' prod1 = m2 * m1 = '
+      write(*,*) ' prod2 = m2 * m1 = '
       write( *, 2000)  ((prod2(i,j),j=1,5),i=1,5)
       print *
 
