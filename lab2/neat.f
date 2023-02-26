@@ -84,6 +84,7 @@ C     If the swap flag was still used then the array still needs sorting
 C     DO loop to print nums
 110   DO 120 I=1, N
 120   PRINT 130, NUMS(I)
+C      PRINT *, ISTART ! debug code
 130   FORMAT(I10)
       STOP
       END
