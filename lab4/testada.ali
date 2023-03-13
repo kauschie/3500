@@ -1,0 +1,120 @@
+V "GNAT Lib v10"
+M P W=b
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FLOATING_POINT
+RV NO_IO
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+RV SPARK_05
+
+U testada%b		testada.adb		3ee82bbe NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z ada.text_io.float_aux%s  a-tiflau.adb		a-tiflau.ali
+Z ada.text_io.float_io%s
+Z system.fat_flt%s	s-fatflt.ads		s-fatflt.ali
+
+D ada.ads		20200723063517 76789da1 ada%s
+D a-except.ads		20200723063517 a7106115 ada.exceptions%s
+D a-inteio.ads		20200723063517 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20200723063517 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20200723063517 119b8fb3 ada.streams%s
+D a-tags.ads		20200723063517 491b781d ada.tags%s
+D a-textio.ads		20200723063517 aef4d56d ada.text_io%s
+D a-tiflau.ads		20200723063517 c0393f21 ada.text_io.float_aux%s
+D a-tiflio.ads		20200723063517 bf196650 ada.text_io.float_io%s
+D a-tiflio.adb		20200723063517 fd9b1cfc ada.text_io.float_io%b
+D a-tiinio.ads		20200723063517 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20200723063517 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20200723063517 5ab55268 interfaces%s
+D i-cstrea.ads		20200723063517 e53d8b8e interfaces.c_streams%s
+D system.ads		20200723063517 4635ec04 system%s
+D s-crtl.ads		20200723063517 0ebbdb71 system.crtl%s
+D s-exctab.ads		20200723063517 54135002 system.exception_table%s
+D s-fatflt.ads		20200723063517 11beb392 system.fat_flt%s
+D s-fatgen.ads		20200723063517 49cbaf86 system.fat_gen%s
+D s-ficobl.ads		20200723063517 078245e4 system.file_control_block%s
+D s-parame.ads		20200723063517 48ec542b system.parameters%s
+D s-secsta.ads		20200723063517 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20200723063517 a7318a92 system.soft_links%s
+D s-stache.ads		20200723063517 a37c21ec system.stack_checking%s
+D s-stalib.ads		20200723063517 09bd3940 system.standard_library%s
+D s-stoele.ads		20200723063517 2dc34a04 system.storage_elements%s
+D s-traent.ads		20200723063517 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20200723063517 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20200723063517 1b7d22d2 system.wch_con%s
+D testada.adb		20230313052635 66577777 testada%b
+G a e
+G c Z b b [testada standard 15 11 none]
+X 1 ada.ads
+16K9*Ada 20e8 30|11r6 12r5 13r6 13r31 18r25
+X 3 a-inteio.ads
+18K13*Integer_Text_IO[11|46] 30|13w10 13r35
+X 7 a-textio.ads
+57K13*Text_IO 727e16 30|11w10 12r9 18r29
+64P9*File_Type 30|54r17
+66n23*In_File{66E9} 30|68r15
+66n32*Out_File{66E9} 30|67r18
+99U14*Create 30|67s5
+114U14*Open 30|68s5
+129U14*Close 30|95s5 96s5
+174U14*Set_Output 30|86s5 88s5
+177V13*Standard_Input{64P9} 30|142s9
+178V13*Standard_Output{64P9} 30|88s16
+258U14*New_Line 30|78s5
+264U14*New_Line 30|58s17 69s9 75s5 84s5 93s5 109s5 116s5 121s5 134s5 151s8
+312V13*End_Of_File{boolean} 30|71s17
+465U14*Put 30|58s5 79s5 80s5 82s5 90s5 91s5 111s5 112s5 113s5 114s5 118s5
+. 119s5 120s5 129s5 139s5 141s5 148s11
+498U14*Put_Line 30|77s5
+508U14*Put_Line 30|87s5 110s5
+X 9 a-tiflio.ads
+46k21*Float_IO 112e25 30|18r37
+82U14 Put 30|83s5[18] 115s5[18]
+X 11 a-tiinio.ads
+51U14*Get 30|72s7[3|18] 142s5[3|18]
+80U14*Put 30|73s7[3|18] 81s5[3|18] 92s5[3|18] 112s17[3|18] 113s20[3|18] 118s25[3|18]
+. 119s16[3|18] 130s5[3|18] 140s5[3|18] 147s11[3|18] 149s11[3|18]
+X 30 testada.adb
+15U11*Testada 15b11 160l5 160t12
+18K11 Flt_IO[9|46] 19r7
+21a3 str{string} 57m5 58r10
+22f3 z{float} 104m5 105m16 115r9
+23b3 b{boolean} 105r18
+24i3 I{integer} 103m5 105m20 105r20 107m5 108m5 112r21 142m25 154m5 155r10
+. 158r18
+25i3 n{natural} 36r47 63r10 72m16 73r11 92r9 113r24 155m5
+26N3 DOZEN 107r17 108r17
+27N3 FIRST 35r26 125r18
+28N3 LAST 35r33 125r25
+29N3 MAX_ROW 40r41 140r9 143r19
+30N3 MAX_COL 40r67 144r22
+32I11 SUB_INT{integer} 33r15 35r42
+33i3 one2fifty{32I11} 158m5
+35A8 AN_ARRAY(32I11)<integer> 37r24
+36A8 LOGIC_ARRAY(boolean)<integer>
+37a3 myArray{35A8} 126m7 130r9 135m5 135r22 136r18
+37a12 yourArray{35A8} 136m5
+40A8 MATRIX(integer)<integer><integer> 43r11
+43a3 grid{40A8} 145m11 147r15
+51U12 nestedTest 51b12 51<23 51>37 51=55 98l7 98t17 105s5
+51f23 z{float} 60m5 64m5 83r9
+51b37 flag{boolean}
+51i55 stuff{integer} 59m5
+53i5 i{integer} 60r16 63m5 81r9
+54p5 outf{7|64P9} 67m12 67r12 77r15 78r14 86r16 96m11 96r11
+54p11 inf{7|64P9} 68m10 68r10 71r29 72r11 95m11 95r11
+125i9 index{integer} 126r15 126r29
+143i9 row{integer} 145r16 145r29 147r20
+144i12 col{integer} 145r21 147r25 149r15
+

@@ -1,0 +1,103 @@
+V "GNAT Lib v10"
+M P W=b
+P SS ZX
+
+RN
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
+RV NO_EXCEPTIONS
+RV NO_IO
+RV NO_NESTED_FINALIZATION
+RV NO_SECONDARY_STACK
+RV NO_DEFAULT_INITIALIZATION
+RV SPARK_05
+
+U walk_directory%b	walk_directory.adb	e315b4cf NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.directories%s	a-direct.adb		a-direct.ali
+Z ada.exceptions%s	a-except.adb		a-except.ali
+W ada.strings%s		a-string.ads		a-string.ali
+W ada.strings.fixed%s	a-strfix.adb		a-strfix.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20200723063517 76789da1 ada%s
+D a-calend.ads		20200723063517 474d9720 ada.calendar%s
+D a-charac.ads		20200723063517 2d3ec45b ada.characters%s
+D a-chlat1.ads		20200723063517 66457d31 ada.characters.latin_1%s
+D a-direct.ads		20200723063517 078228da ada.directories%s
+D a-except.ads		20200723063517 a7106115 ada.exceptions%s
+D a-finali.ads		20200723063517 bf4f806b ada.finalization%s
+D a-ioexce.ads		20200723063517 e4a01f64 ada.io_exceptions%s
+D a-stream.ads		20200723063517 119b8fb3 ada.streams%s
+D a-string.ads		20200723063517 90ac6797 ada.strings%s
+D a-strfix.ads		20200723063517 86d6bc21 ada.strings.fixed%s
+D a-strmap.ads		20200723063517 e8bb714a ada.strings.maps%s
+D a-strunb.ads		20200723063517 1656705b ada.strings.unbounded%s
+D a-tags.ads		20200723063517 491b781d ada.tags%s
+D a-textio.ads		20200723063517 aef4d56d ada.text_io%s
+D a-unccon.ads		20200723063517 0e9b276f ada.unchecked_conversion%s
+D interfac.ads		20200723063517 5ab55268 interfaces%s
+D i-cstrea.ads		20200723063517 e53d8b8e interfaces.c_streams%s
+D system.ads		20200723063517 4635ec04 system%s
+D s-atocou.ads		20200723063517 b45c2d8d system.atomic_counters%s
+D s-crtl.ads		20200723063517 0ebbdb71 system.crtl%s
+D s-exctab.ads		20200723063517 54135002 system.exception_table%s
+D s-ficobl.ads		20200723063517 078245e4 system.file_control_block%s
+D s-finmas.ads		20200723063517 7811a767 system.finalization_masters%s
+D s-finroo.ads		20200723063517 4ff27390 system.finalization_root%s
+D s-memory.ads		20200723063517 597d6634 system.memory%s
+D s-parame.ads		20200723063517 48ec542b system.parameters%s
+D s-secsta.ads		20200723063517 20bbe636 system.secondary_stack%s
+D s-soflin.ads		20200723063517 a7318a92 system.soft_links%s
+D s-stache.ads		20200723063517 a37c21ec system.stack_checking%s
+D s-stalib.ads		20200723063517 09bd3940 system.standard_library%s
+D s-stalib.adb		20200723063517 f2fe2716 system.standard_library%b
+D s-stoele.ads		20200723063517 2dc34a04 system.storage_elements%s
+D s-stopoo.ads		20200723063517 b16154c2 system.storage_pools%s
+D s-stposu.ads		20200723063517 97a6219c system.storage_pools.subpools%s
+D s-stratt.ads		20200723063517 aedef97e system.stream_attributes%s
+D s-traent.ads		20200723063517 005bf670 system.traceback_entries%s
+D s-unstyp.ads		20200723063517 34867c83 system.unsigned_types%s
+D s-wchcon.ads		20200723063517 1b7d22d2 system.wch_con%s
+D walk_directory.adb	20230313055112 ccb5f559 walk_directory%b
+G a e
+G c Z b b [walk_directory standard 12 11 none]
+X 1 ada.ads
+16K9*Ada 20e8 40|8r6 8r29 9r6 9r29 10r6 10r29
+X 5 a-direct.ads
+76K13*Directories 502e20 40|8w10 8r33
+345R9*Directory_Entry_Type 480e14 40|16r17
+360R9*Search_Type<7|43R9> 495e14 40|15r21
+365U14*Start_Search 40|19s5
+384U14*End_Search 40|30s5
+391V13*More_Entries{boolean} 40|21s11
+395U14*Get_Next_Entry 40|22s9
+429V13*Simple_Name{string} 40|24s22 25s23
+X 10 a-string.ads
+16K13*Strings 35e16 40|10r10 10r33
+X 11 a-strfix.ads
+43K21*Fixed 596e22 40|10w18 10r41
+545V13*Tail{string} 40|24s16
+X 15 a-textio.ads
+57K13*Text_IO 727e16 40|9w10 9r33
+508U14*Put_Line 40|25s13
+X 19 system.ads
+67M9*Address
+X 26 s-memory.ads
+53V13*Alloc{19|67M9} 103i<c,__gnat_malloc>22
+68U14*Free 104i<c,__gnat_free>22
+76V13*Realloc{19|67M9} 105i<c,__gnat_realloc>22
+X 32 s-stalib.adb
+93U14 Break_Start 94i<c,__gnat_break_start>22
+X 40 walk_directory.adb
+12U11*walk_directory 12b11 32l5 32t19
+13a9 Directory{string} 19r27
+14a5 Pattern{string} 19r38
+15r9 Search{5|360R9} 19m19 19r19 21r25 22m25 22r25 30m17 30r17
+16r5 Dir_Ent{5|345R9} 22m33 24r35 25r36
+17a9 smatch{string} 24r45 24r62
+
