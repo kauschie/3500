@@ -11,11 +11,12 @@ RV NO_IO
 RV NO_NESTED_FINALIZATION
 RV NO_RECURSION
 RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV SPARK_05
 
-U matdet%b		matdet.adb		40626b93 NE OO SU IL
+U matdet%b		matdet.adb		4b502346 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.directories%s	a-direct.adb		a-direct.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
@@ -53,7 +54,7 @@ D a-tiinio.ads		20200723063517 390edddb ada.text_io.integer_io%s
 D a-unccon.ads		20200723063517 0e9b276f ada.unchecked_conversion%s
 D interfac.ads		20200723063517 5ab55268 interfaces%s
 D i-cstrea.ads		20200723063517 e53d8b8e interfaces.c_streams%s
-D matdet.adb		20230313053631 7803e401 matdet%b
+D matdet.adb		20230318090413 7331acd4 matdet%b
 D system.ads		20200723063517 4635ec04 system%s
 D s-atocou.ads		20200723063517 b45c2d8d system.atomic_counters%s
 D s-crtl.ads		20200723063517 0ebbdb71 system.crtl%s
@@ -80,118 +81,141 @@ D s-wchcon.ads		20200723063517 1b7d22d2 system.wch_con%s
 G a e
 G c Z b b [matdet standard 16 11 none]
 X 1 ada.ads
-16K9*Ada 20e8 23|9r6 9r31 10r6 10r29 11r6 11r29 12r6 12r29 13r6 13r29 50r41
-. 63r41 77r41
+16K9*Ada 20e8 23|9r6 9r31 10r6 10r29 11r6 11r29 12r6 12r29 13r6 13r29 54r41
+. 67r41 81r41
 X 5 a-direct.ads
 76K13*Directories 502e20 23|10w10 10r33
-345R9*Directory_Entry_Type 480e14 23|33r21
-360R9*Search_Type<7|43R9> 495e14 23|32r21
-365U14*Start_Search 23|202s17
-384U14*End_Search 23|233s9
-391V13*More_Entries{boolean} 23|205s23
-395U14*Get_Next_Entry 23|206s25
-429V13*Simple_Name{string} 23|207s34 208s52 211s37 217s40 223s40
+345R9*Directory_Entry_Type 480e14 23|37r21
+360R9*Search_Type<7|43R9> 495e14 23|36r21
+365U14*Start_Search 23|265s17
+384U14*End_Search 23|296s9
+391V13*More_Entries{boolean} 23|268s23
+395U14*Get_Next_Entry 23|269s25
+429V13*Simple_Name{string} 23|270s34 271s52 274s37 280s40 286s40
 X 8 a-flteio.ads
 20K13*Float_Text_IO[18|46] 23|13w10 13r33
 X 9 a-inteio.ads
-18K13*Integer_Text_IO[19|46] 23|9w10 9r35 50r45
+18K13*Integer_Text_IO[19|46] 23|9w10 9r35 54r45
 X 12 a-string.ads
 16K13*Strings 35e16 23|12r10 12r33
 X 13 a-strfix.ads
 43K21*Fixed 596e22 23|12w18 12r41
-545V13*Tail{string} 23|207s28
+545V13*Tail{string} 23|270s28
 X 17 a-textio.ads
-57K13*Text_IO 727e16 23|11w10 11r33 63r45 77r45
-64P9*File_Type 23|35r29 46r53
-66n23*In_File{66E9} 23|208r43
-114U14*Open 23|208s33
-129U14*Close 23|230s33
-174U14*Set_Output 23|59s18 73s18
-178V13*Standard_Output{64P9} 23|59s29 73s29
-264U14*New_Line 23|66s26 80s26 215s41 221s41 227s41
-465U14*Put 23|63s53 64s34 77s53 78s34
-508U14*Put_Line 23|213s41 219s41 225s41 237s9 238s9 241s9 243s9 244s9 246s3
-. 248s9 249s9 251s3 253s9 254s9
+57K13*Text_IO 727e16 23|11w10 11r33 67r45 81r45
+64P9*File_Type 23|39r29 50r53
+66n23*In_File{66E9} 23|271r43
+114U14*Open 23|271s33
+129U14*Close 23|293s33
+174U14*Set_Output 23|63s18 77s18
+178V13*Standard_Output{64P9} 23|63s29 77s29
+264U14*New_Line 23|70s26 84s26 278s41 284s41 290s41 306s44
+465U14*Put 23|67s53 68s34 81s53 82s34
+508U14*Put_Line 23|276s41 282s41 288s41 300s9 301s9 304s9 306s9 308s9 310s3
+. 312s9 313s9 315s3 317s9 318s9
 X 19 a-tiinio.ads
-51U14*Get 23|50s61[9|18]
+51U14*Get 23|54s61[9|18]
 X 23 matdet.adb
-16U11*matdet 16b11 256l5 256t11
-18i9 MAX_ROW{integer} 48r53 60r46 74r46 93r33 107r45 120r45 134r45 197m9
-19i9 MAX_COL{integer} 49r64 61r57 75r57 94r38 108r56 121r56 136r56 138r59
-. 198m9
-20i9 N{integer} 50m69 51r75
-23A7 MATRIX(long_float)<integer><integer> 25r13 26r13 27r13 46r77 57r46 71r46
-. 89r36 89r58 89r73 91r14 103r47 103r86 105r26 117r42 117r57 118r26 129r47
-. 129r69 129r84 131r26 149r43 157r13
-25a9 m1{23A7} 212m63 214r55 242m30 242r30
-26a9 m2{23A7} 218m63 220r55 247m30 247r30
-27a9 m3{23A7} 224m63 226r55 252m30 252r30
-30a9 Directory{string} 202r39
-31a9 Pattern{string} 202r50
-32r9 Search{5|360R9} 202m31 202r31 205r37 206m41 206r41 233m21 233r21
-33r9 Dir_Ent{5|345R9} 206m49 207r47 208r65 211r50 217r53 223r53
-34a9 smatch{string} 207r57 207r74
-35p9 Inf{17|64P9} 208m38 208r38 212r58 218r58 224r58 230m39 230r39
-37f9 detm1{long_float} 242m9 243r35
-38f9 detm2{long_float} 247m9 248r35
-39f9 detm3{long_float} 252m9 253r35
-46U27 PopulateMatrixLF 46b27 46>44 46<64 54l21 54t37 212s41 218s41 224s41
-46p44 Inf{17|64P9} 50r65
-46a64 Result{23A7} 51m41
-48i29 Row{integer} 51r48
-49i37 Column{integer} 51r53
-57U20 PrintMatrixLI 57b20 57>35 68l14 68t27
-57a35 Input{23A7} 63r89
-60i22 Row{integer} 63r95
-61i30 Column{integer} 63r100
-71U20 PrintMatrixLF 71b20 71>35 82l14 82t27 214s41 220s41 226s41
-71a35 Input{23A7} 77r74
-74i22 Row{integer} 77r80
-75i30 Column{integer} 77r85
-89V12 AddMatrix{23A7} 89b12 89>22 89>44 100l7 100t16
-89a22 Matrix_1{23A7} 95r16
-89a44 Matrix_2{23A7} 95r40
-90f5 Sum{long_float} 95m9 96r32
-91a5 Result{23A7} 96m9 99r12
-93i9 Row{integer} 95r25 95r49 96r16
-94i11 Column{integer} 95r30 95r54 96r21
-103V18 MultiplyScalar{23A7} 103b18 103>33 103>55 114l13 114t27
-103a33 Matrix_1{23A7} 109r44
-103f55 Scalar{long_float} 109r68
-104f17 Product{long_float} 109m33 110r56
-105a17 Result{23A7} 110m33 113r24
-107i21 Row{integer} 109r53 110r40
-108i29 Column{integer} 109r58 110r45
-117V18 Transpose{23A7} 117b18 117>28 126l13 126t22
-117a28 Matrix_1{23A7} 122r56
-118a17 Result{23A7} 122m33 125r24
-120i21 Row{integer} 122r40 122r73
-121i29 Column{integer} 122r45 122r65
-129V18 MultiplyMatrix{23A7} 129b18 129>33 129>55 146l13 146t27
-129a33 Matrix_1{23A7} 139r52
-129a55 Matrix_2{23A7} 139r71
-130f17 Product{long_float} 139m41 140r76
-131a17 Result{23A7} 142m33 145r24
-132f17 Result_Element{long_float} 135m25 137m33 140m41 140r59 142r56
-134i21 Row{integer} 139r61 142r40
-136i29 Column{integer} 139r83 142r45
-138i37 K{integer} 139r66 139r80
-149V18 Determinant{long_float} 149b18 149=30 149>51 186s63 191l13 191t24
-. 242s18 247s18 252s18
-149a30 mdet{23A7} 165r24 165r36 165r50 165r62 181r80 186r50
-149i51 n{integer} 157r23 157r31 164r12 169r30 172r45 174r55 178r74 186r78
-150i9 i{integer} 160m9
-151i9 aj{integer} 170m33
-152i9 bj{integer} 171m33 173m42 178r69 181r73 182m66 182r72
-153f9 k{long_float} 163m9
-154f9 d{long_float} 165m18 166r25
-155f9 l{long_float} 162m9 186m33 186r38 190r25
-156f9 sign{long_float} 161m9 186r43 187m33 187r41
-157a9 b{23A7} 181m66 186m75 186r75
-169i22 k{integer} 175r65 186r58
-172i37 i{integer} 181r68 181r85
-174i46 aj{integer} 175r60 181r88
-183L59 endofloop 176r71 179r86
+16U11*matdet 16b11 320l5 320t11
+18i9 MAX_ROW{integer} 52r53 64r46 78r46 97r33 111r45 124r45 138r45 260m9
+19i9 MAX_COL{integer} 53r64 65r57 79r57 98r38 112r56 125r56 140r56 142r59
+. 261m9
+20i9 N{integer} 54m69 55r75
+23A7 MATRIX(long_float)<integer><integer> 25r13 26r13 27r13 29r19 30r19 31r19
+. 50r77 61r46 75r46 93r36 93r58 93r73 95r14 107r47 107r86 109r26 121r42 121r57
+. 122r26 133r47 133r69 133r84 135r26 153r43 161r13 200r42 200r86 205r17 210r13
+25a9 m1{23A7} 275m63 277r55 305m30 305r30 307m31 307r31
+26a9 m2{23A7} 281m63 283r55 311m30 311r30
+27a9 m3{23A7} 287m63 289r55 316m30 316r30
+29a9 cofac_m1{23A7} 307m9
+30a9 cofac_m2{23A7}
+31a9 cofac_m3{23A7}
+34a9 Directory{string} 265r39
+35a9 Pattern{string} 265r50
+36r9 Search{5|360R9} 265m31 265r31 268r37 269m41 269r41 296m21 296r21
+37r9 Dir_Ent{5|345R9} 269m49 270r47 271r65 274r50 280r53 286r53
+38a9 smatch{string} 270r57 270r74
+39p9 Inf{17|64P9} 271m38 271r38 275r58 281r58 287r58 293m39 293r39
+41f9 detm1{long_float} 305m9 306r35 307r34
+42f9 detm2{long_float} 311m9 312r35
+43f9 detm3{long_float} 316m9 317r35
+50U27 PopulateMatrixLF 50b27 50>44 50<64 58l21 58t37 275s41 281s41 287s41
+50p44 Inf{17|64P9} 54r65
+50a64 Result{23A7} 55m41
+52i29 Row{integer} 55r48
+53i37 Column{integer} 55r53
+61U20 PrintMatrixLI 61b20 61>35 72l14 72t27
+61a35 Input{23A7} 67r89
+64i22 Row{integer} 67r95
+65i30 Column{integer} 67r100
+75U20 PrintMatrixLF 75b20 75>35 86l14 86t27 252s9 277s41 283s41 289s41
+75a35 Input{23A7} 81r74
+78i22 Row{integer} 81r80
+79i30 Column{integer} 81r85
+93V12 AddMatrix{23A7} 93b12 93>22 93>44 104l7 104t16
+93a22 Matrix_1{23A7} 99r16
+93a44 Matrix_2{23A7} 99r40
+94f5 Sum{long_float} 99m9 100r32
+95a5 Result{23A7} 100m9 103r12
+97i9 Row{integer} 99r25 99r49 100r16
+98i11 Column{integer} 99r30 99r54 100r21
+107V18 MultiplyScalar{23A7} 107b18 107>33 107>55 118l13 118t27
+107a33 Matrix_1{23A7} 113r44
+107f55 Scalar{long_float} 113r68
+108f17 Product{long_float} 113m33 114r56
+109a17 Result{23A7} 114m33 117r24
+111i21 Row{integer} 113r53 114r40
+112i29 Column{integer} 113r58 114r45
+121V18 Transpose{23A7} 121b18 121>28 130l13 130t22
+121a28 Matrix_1{23A7} 126r56
+122a17 Result{23A7} 126m33 129r24
+124i21 Row{integer} 126r40 126r73
+125i29 Column{integer} 126r45 126r65
+133V18 MultiplyMatrix{23A7} 133b18 133>33 133>55 150l13 150t27
+133a33 Matrix_1{23A7} 143r52
+133a55 Matrix_2{23A7} 143r71
+134f17 Product{long_float} 143m41 144r76
+135a17 Result{23A7} 146m33 149r24
+136f17 Result_Element{long_float} 139m25 141m33 144m41 144r59 146r56
+138i21 Row{integer} 143r61 146r40
+140i29 Column{integer} 143r83 146r45
+142i37 K{integer} 143r66 143r80
+153V18 Determinant{long_float} 153b18 153=30 153>51 190s63 195l13 195t24
+. 244s42 305s18 311s18 316s18
+153a30 mdet{23A7} 169r24 169r36 169r50 169r62 185r80 190r50
+153i51 n{integer} 161r23 161r31 168r12 173r30 176r45 178r55 182r74 190r78
+154i9 i{integer} 164m9
+155i9 aj{integer} 174m33
+156i9 bj{integer} 175m33 177m42 182r69 185r73 186m66 186r72
+157f9 k{long_float} 167m9
+158f9 d{long_float} 169m18 170r25
+159f9 l{long_float} 166m9 190m33 190r38 194r25
+160f9 sign{long_float} 165m9 190r43 191m33 191r41
+161a9 b{23A7} 185m66 190m75 190r75
+173i22 k{integer} 179r65 190r58
+176i37 i{integer} 185r68 185r85
+178i46 aj{integer} 179r60 185r88
+187L59 endofloop 180r71 183r86
+200V18 Cofactors{23A7} 200b18 200=28 200>50 200>67 256l13 256t22 307s21
+200a28 coeff{23A7} 236r81
+200f50 det{long_float}
+200i67 n{integer} 210r23 210r31 219r23 220r30 224r45 229r55 233r74 244r57
+202i9 i{integer} 214m9
+203i9 aj{integer} 221m33
+204i9 bj{integer} 222m33 228m42 233r69 236r74 237m66 237r72
+205a9 cofac{23A7} 245m33 252r23 254r16
+206f9 k{long_float} 217m9
+207f9 minor{long_float} 244m33 245r56
+208f9 l{long_float} 216m9
+209f9 sign{long_float} 215m9 245r49 247m33 247r41
+210a9 b{23A7} 236m66 244m54 244r54
+211i9 bcnt{integer} 223m33 236r68 240m41 240r49
+219i13 row{integer} 225r48 245r39
+220i22 k{integer} 230r65 245r43
+224i37 i{integer} 225r44 236r87
+229i46 aj{integer} 230r60 236r90
+238L59 endofloop 231r71 234r86
+241L43 nextloop 226r54
 X 24 system.ads
 67M9*Address
 X 33 s-memory.ads

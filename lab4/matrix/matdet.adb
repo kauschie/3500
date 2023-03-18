@@ -26,6 +26,10 @@ procedure matdet is
 	m2: MATRIX (1..7,1..7);
 	m3: MATRIX (1..7,1..7);
 
+	cofac_m1: MATRIX (1..7,1..7);
+	cofac_m2: MATRIX (1..7,1..7);
+	cofac_m3: MATRIX (1..7,1..7);
+
 	--Definfifn some constants
 	Directory : String := ".";
 	Pattern   : String := "";
@@ -192,6 +196,65 @@ procedure matdet is
 
   --+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+  --Function to calculate the cofactors of a matrix of Long Floats
+	function Cofactors(coeff: in out MATRIX; det: LONG_FLOAT; n: INTEGER) return MATRIX is
+
+	i : INTEGER;
+	aj : INTEGER;
+	bj : INTEGER;
+	cofac : MATRIX(1..7, 1..7);
+	k : LONG_FLOAT;
+	minor : LONG_FLOAT;
+	l : LONG_FLOAT;
+	sign : LONG_FLOAT;
+	b : MATRIX(1..n-1, 1..n-1);
+	bcnt : INTEGER;
+
+	begin
+	i := 2;
+	sign := 1.0;
+	l := 0.0;
+	k := 1.0;
+
+	for row in 1..n loop
+		 for k in 1..n loop
+				aj := 1;
+				bj := 1;
+				bcnt := 1;
+				for i in 1..n loop
+					if i = row then
+					 	goto nextloop;
+					end if;
+					 bj := 1;
+					 for aj in 1..n loop
+							if aj = k then
+								 goto endofloop;
+							end if;
+								 if bj = n then
+										goto endofloop;
+								 end if;
+								 b(bcnt, bj) := coeff(i, aj);
+								 bj := bj + 1;
+							<<endofloop>>
+					 end loop;
+					bcnt := bcnt + 1;
+					<<nextloop>>
+				end loop;
+
+				minor := Determinant(b, n-1);
+				cofac(row,k) := sign * minor;
+				--  l := l + (sign * mdet(1, k) * Determinant(b, n-1));
+				sign := sign * (-1.0);
+
+		 end loop;
+	end loop;
+
+	PrintMatrixLF(cofac);
+
+	return cofac;
+
+	end Cofactors;
+
 begin
 
 	MAX_ROW := 7;
@@ -240,7 +303,8 @@ begin
 
 	Put_Line("det(m1)");
 	detm1 := Determinant(m1, 7);
-	Put_Line(Long_Float'image(detm1));
+	Put_Line(Long_Float'image(detm1)); New_Line;
+	cofac_m1 := Cofactors(m1,detm1,7);
 	Put_Line("");
 
   Put_Line("det(m2)");
