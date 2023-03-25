@@ -159,86 +159,6 @@ def tqs(array, from=0, to=nil)
 end
 
 
-# # Tail-Recursive Function for QuickSort
-# ##################################
-
-# def tail_quicksort(arr, low=0, high=arr.size-1)
-# 	while low < high do
-# 		r = partition(arr, low, high)
-# 		# puts "pivot is #{q}"
-# 		# puts "calling tail_quicksort with low: #{low} and high: #{q-1}"
-
-# 		tail_quicksort(arr, low, high-1)
-# 		# print_arr arr
-# 		low = q+1
-# 		# puts "new low: #{low}"
-# 	end
-
-# end
-
-# def tail_quicksort2(arr, low=0, high=arr.size-1)
-# 	while low < high do
-# 		r = partition(arr, low, high)
-# 		if (r - low < high - r) then # first half
-# 			tail_quicksort2(arr, low, r-1)
-# 			low = r+1 
-# 		else
-# 			tail_quicksort2(arr, r+1, low)
-# 			high = r-1
-# 		end
-
-# 	end
-
-# end
-
-
-
-
-# def mike_quicksort(arr, low=0, high=arr.size-1)
-# 	if (low < high) then
-# 		p = partition(arr, low, high)
-# 		mike_quicksort(arr, low, p-1)
-# 		mike_quicksort(arr, p+1, high)
-# 	end
-# end
-
-
-# # partition function to return pivot and do swaps
-
-# def partition(arr, low, high)
-# 	pivot = arr[low]
-
-# 	i = low + 1
-# 	j = high
-
-# 	while true
-
-# 		# decrease j index until we find a var that's less than pivot
-# 		while i <= j && arr[j] >= pivot
-# 			j -= 1 
-# 		end
-
-# 		#increase i until we find a var that's more than pivot
-# 		while i <= j && arr[i] <= pivot
-# 			i += 1
-# 		end
-
-# 		# swap if iterators haven't crossed
-# 		if i <= j then
-# 			arr[i], arr[j] = arr[j], arr[i]
-# 		else
-# 			break
-# 		end
-
-# 	end
-	
-# 	#swap j with pivot position
-# 	arr[j], arr[low] = arr[low], arr[j]
-
-# 	return j
-# end
-
-
 # Iterative implementation for Binary Search
 ############################################
 # iterative implementation of binary search in Ruby search in O(lg(n)) time
@@ -258,48 +178,8 @@ def binary_search_iter(arr, el)
 		end
     end
   
-    return nil # Returns nil if ekement is not found
+    return -1 # Returns -1 if element is not found
 end
-
-# ############################################
-# # tail recursive implementation for Binary Search
-# ############################################
-
-# def binary_search_recur(arr, x)
-   
-# 	first = 0
-# 	last = arr.length-1
-# 	mid = (arr.length/2).to_i
-    
-# 	if (arr[mid] == x)
-# 		return mid
-# 	elsif (arr[mid] < x )
-# 		# check if last element
-# 		puts arr.inspect
-# 		if (arr.length == 1) then
-# 			return -1
-# 		end
-
-# 		sub_array = arr[mid+1..last]
-		
-
-# 		return binary_search_recur(sub_array, x)
-# 	elsif (arr[mid] > x)
-# 		puts arr.inspect
-
-# 		if (arr.length == 1) then
-# 			return -1
-# 		end
-
-# 		sub_array = arr[first...mid]
-
-# 		return binary_search_recur(sub_array, x)
-
-# 	else
-# 		return -1
-# 	end
-# end
-
 
 ############################################
 # tail recursive implementation for Binary Search
@@ -461,9 +341,9 @@ time_trbs2 = ending - starting
 
 
 
-puts "Part2: "
-puts "**********\n"
+puts "Part2:\n\n"
 
+puts "******* SORTING *******"
 
 puts "\n"
 print "              Time to sort in seconds       				Time to sort in seconds\n"
@@ -472,27 +352,25 @@ print "********      ************************      				*************************
 puts  "List 1        #{time_professor_qs1.round(8)} seconds.\t\t\t\t\t #{time_mike_qs1.round(8)} seconds."
 puts  "List 2        #{time_professor_qs2.round(8)} seconds.\t\t\t\t\t #{time_mike_qs2.round(8)} seconds."
 
+puts "\n\n******* SEARCHING *******"
+puts "\n\n"
+print "         ||   Time to search in seconds (if -1 index then your value wasn't found)\n"
+print "ALGO     ||   Iterative Binary Search\n"
+print "******** ||   ************************\n"
+puts  "List 1   ||   Found #{search_element} at index #{iter1_pos} in #{time_ibs1.round(8)} seconds."
+puts  "List 2   ||   Found #{search_element} at index #{iter2_pos} in #{time_ibs2.round(8)} seconds."
+puts  "******** ||\n"
 
-puts "\n"
-print "              Time to search in seconds\n"
-print "List          Iterative Binary Search\n"
-print "********      ************************\n"
-puts  "List 1        Found #{search_element} at index #{iter1_pos} in #{time_ibs1.round(8)} seconds."
-puts  "List 2        Found #{search_element} at index #{iter2_pos} in #{time_ibs2.round(8)} seconds."
+puts "\n"			
+print "ALGO     ||   Recursive Binary Search\n"          		
+print "******** ||   ************************\n"
+puts  "List 1   ||   Found #{search_element} at index #{recur1_pos} in #{time_rbs1.round(8)} seconds."
+puts  "List 2   ||   Found #{search_element} at index #{recur2_pos} in #{time_rbs2.round(8)} seconds."
+puts  "******** ||\n"
 
-
-puts "\n"
-print "              Time to search in seconds\n"     				
-print "List          Recursive Binary Search\n"          		
-print "********      ************************\n"
-puts  "List 1        Found #{search_element} at index #{recur1_pos} in #{time_rbs1.round(8)} seconds."
-puts  "List 2        Found #{search_element} at index #{recur2_pos} in #{time_rbs2.round(8)} seconds."
-
-
-puts "\n"
-print "              Time to search in seconds\n"     				
-print "List          Tail Recursive Binary Search\n"          		
-print "********      ************************\n"
-puts  "List 1        Found #{search_element} at index #{tail_recur1_pos} in #{time_trbs1.round(8)} seconds."
-puts  "List 2        Found #{search_element} at index #{tail_recur2_pos} in #{time_trbs2.round(8)} seconds."
-
+puts "\n"  				
+print "ALGO     ||   Tail Recursive Binary Search\n"          		
+print "******** ||   ************************\n"
+puts  "List 1   ||   Found #{search_element} at index #{tail_recur1_pos} in #{time_trbs1.round(8)} seconds."
+puts  "List 2   ||   Found #{search_element} at index #{tail_recur2_pos} in #{time_trbs2.round(8)} seconds."
+puts  "******** ||\n"
