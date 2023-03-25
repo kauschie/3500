@@ -44,6 +44,12 @@ def fibonacci_helper( a, b, count )
   end
 
 # Binet Accuracy method - 
+# Brute force algorithm that iterates through every
+# fibonacci number using both methods until they no
+# longer return the same value.
+
+# Returns: the last value that the two versions
+# were equivalent
 def binet_accuracy()
 	n = 1
 
@@ -55,13 +61,12 @@ def binet_accuracy()
 end
 
 # Recursive Function for QuickSort
+# Provided by Professor Morales
 ##################################
 # QuickSort algorith sorts in in O(n * lg(n)) time
 
 def quicksort(array, from=0, to=nil)
     
-	
-	
 	if to == nil
         # Sort the whole array, by default
         to = array.count - 1
@@ -110,7 +115,8 @@ def quicksort(array, from=0, to=nil)
     quicksort array, free + 1, to
 end
 
-
+# Tail-recursive Quick Sort (tqs)
+##################################
 def tqs(array, from=0, to=nil)
     
 	if to == nil
@@ -129,6 +135,7 @@ def tqs(array, from=0, to=nil)
 		# Current free slot
 		free = min
 
+		# "partition and sort around pivot"
 		while min < max
 			if free == min # Evaluate array[max]
 				if array[max] <= pivot # Smaller than pivot, must move
@@ -248,7 +255,7 @@ to_sort1 = unsort_list1.map(&:clone)
 # #reading list 2 into an array
 unsort_list2 = Array.new
 unsort_list2 = File.read("list2.txt").split.map(&:to_i)
-to_sort2 = unsort_list1.map(&:clone)
+to_sort2 = unsort_list2.map(&:clone)
 
 puts "Part 1:"
 puts "**********"
@@ -309,12 +316,14 @@ ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 time_ibs1 = ending - starting
 
 # time for recursive binary search list1
+# grabs index position from recursive binary search function
 starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 recur1_pos = binary_search_recur(to_sort1, 0, to_sort1.length, search_element)
 ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 time_rbs1 = ending - starting
 
-# time for tail recursive binary search list1
+# time for tail recursive binary search  (trbs)  of list1
+# grabs index position from binary_search_tailrecur func
 starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 tail_recur1_pos = binary_search_tailrecur(to_sort1, 0, to_sort1.length, search_element)
 ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
@@ -333,7 +342,7 @@ recur2_pos = binary_search_recur(to_sort2, 0, to_sort2.length, search_element)
 ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 time_rbs2 = ending - starting
 
-# time for tail recursive binary search list2
+# time for tail recursive binary search (trbs) list2
 starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 tail_recur2_pos = binary_search_tailrecur(to_sort2, 0, to_sort2.length, search_element)
 ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
