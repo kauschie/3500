@@ -269,6 +269,10 @@ puts "\n"
 
 
 
+puts "Part2:\n\n"
+
+puts "******* SORTING *******"
+
 
 ######################################################
 ##						SORTING						##
@@ -349,10 +353,6 @@ ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
 time_trbs2 = ending - starting
 
 
-
-puts "Part2:\n\n"
-
-puts "******* SORTING *******"
 
 puts "\n"
 print "              Time to sort in seconds       				Time to sort in seconds\n"
