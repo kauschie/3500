@@ -1,0 +1,3 @@
+[submodule "project/CMPS3500Proj"]
+	path = project/CMPS3500Proj
+	url = git@github.com:stellez4/CMPS3500Proj.git

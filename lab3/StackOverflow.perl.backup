@@ -1,0 +1,118 @@
+#!/usr/bin/perl
+
+#  NAME: Michael Kausch
+#  ASGT: Activity 3
+#  ORGN: CSUB - CMPS 3500
+#  DATE: 02/25/2023
+
+
+use strict;
+use warnings;
+
+my $infile = "StackOverflow.csv";
+# open(my $infile,  "<",  "StackOverflow.csv")  or die "Can't open input.txt: $!";
+open(INFILE, $infile);
+
+# print "----Line one:----\n";
+# my $oneline = <INFILE>;
+# print $oneline;
+# print "----Line two:----\n";
+# my $twoline = <INFILE>;
+# print $twoline;
+# print "----Line three:----\n";
+# my $threeline = <INFILE>;
+# print $threeline;
+
+# print "----Line one:----\n";
+# $oneline = <INFILE>;
+# print $oneline;
+# print "----Line two:----\n";
+# $twoline = <INFILE>;
+# print $twoline;
+# print "----Line three:----\n";
+# $threeline = <INFILE>;
+# print $threeline;
+
+# print "----Line one:----\n";
+# $oneline = <INFILE>;
+# print $oneline;
+# print "----Line two:----\n";
+# $twoline = <INFILE>;
+# print $twoline;
+# print "----Line three:----\n";
+#  $threeline = <INFILE>;
+# print $threeline;
+
+my $first_line = <INFILE>;
+
+while (<INFILE>) {
+    chomp;
+    my $post_content = $_;
+
+    # has line that starts with the post id
+    # if ($post_content =~ /^[0-9]{8}(.*)/m) {
+    if ($post_content =~ /^([0-9]{8}),(\w.*),("(<p>)?.*"),((<\w*>)+),(.*),(LQ_EDIT|HQ|LQ_CLOSE)/m) {
+        print "----FULL ONE:----\n";
+        print "$post_content\n";
+        # my $end_of_line = $1;
+        # print "----NEW ONE:----\n";
+        # print "$end_of_line\n";
+        # if ($end_of_line =~ /.*HQ$/) {
+        #     print "omg found a HQ one\n";
+        # }
+    } elsif ($post_content =~ /^([0-9]{8}),(\w.*),/m) {
+
+        print "----PARTIAL ONE:----\n";
+        print "$post_content\n";
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+close INFILE
+
+
+# slurp file open into one var
+# open my $fh, '<', 'StackOverflow.csv' or die "Can't open file $!";
+# read $fh, my $file_content, -s $fh;
+
+# print $file_content;
+
+# my @content_array = split /([0-9]{8}),(\w.*),("(<p>)?.*"),((<\w*>)+),(.*),(LQ_EDIT|HQ|LQ_CLOSE)/m , $file_content;
+# my @content_array = split /([0-9]{8}),(\w.*),(LQ_EDIT|HQ|LQ_CLOSE)/gm , $file_content;
+
+# print $content_array[1];
+
+
+# my $column = 1;
+
+
+# while (<INFILE>) {
+
+#     chomp;
+#     my $inputline = $_;
+#     print $inputline
+
+#     if ($column == 1) {
+#         my $inputline =~ m/([0-9]{8})/c;
+#         print $1;
+#     }
+
+
+#     # my $inputline =~ m/([0-9]{8}.*)(LQ_CLOSE|HQ|LQ_EDIT)/s;
+#     # $inputline =~ m/([0-9]{8}.*?)/s;
+
+
+# # ([0-9]{8}),(\w.*),("(<p>)?.*"),((<\w*>)+),(.*),(LQ_EDIT|HQ|LQ_CLOSE)
+
+#     # print "$1";
+
+# }
