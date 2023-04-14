@@ -27,6 +27,7 @@ act06.data is structured like this:
 from sys import argv
 import re
 import math
+import sys
 
 """
 my_map takes a function and a list, and returns the result of the
@@ -122,19 +123,149 @@ def my_filter(foo, data_list):
   filtered_vals = [val for val in data_list if foo(val)]
   return sorted(filtered_vals)
 
+
+
+
+
+
+def printjob(name):              
+  # name += " "
+  sys.stdout.write(f"{name[0]},{name[1]} ") 
+
+"""
++  CONSUMER 
++  'yield stuff' passes stuff back to the producer; when control resumes a 
++  message (it may be empty) is available from the producer as the return 
++  value from yield; note: cannot remove everything from the list since
++  the dereference to jobs[i] in yield is invalid
+"""
+def consumer(jobs):
+  print("Consumer starting.")
+
+  i = -1 
+
+  # as long as something is in the jobs list keep processing requests
+  while jobs:
+    i = (i + 1) % len(jobs)
+    # yield passes control back to producer with the ith job name
+    getRequest = yield jobs[i]    # waits for request from producer
+
+    if getRequest:    # if getRequest is not empty process it
+      request, name, job_no = getRequest
+      if request == "add":
+        jobs.append((name, job_no))
+        sys.stdout.write("\nADD ") 
+      elif request == "remove" and (name, job_no) in jobs:
+        jobs.remove((name, job_no))
+        sys.stdout.write(f"\nREMOVE {name},{job_no}\n")
+
+  print ("\nNo jobs left to do!\n")
+
+
+def producer(jobs):
+  print("Producer starting.")
+  con = consumer(jobs)
+  
+  # buf = "Initial job list (" + str(len(jobs)) + "): "
+  # sys.stdout.write(buf)
+  for i in range(len(jobs)): 
+    printjob(next(con))  # next sends job to consumer w/ no msg 
+  
+  printjob(con.send(("add", "iron", 44)))  # send sends job to consumer w/ msg
+  sys.stdout.write("\n")
+  for i in range(len(jobs)): 
+    printjob(next(con))               
+
+  # printjob(con.send(("add", "mend", 55)))   
+  # sys.stdout.write("\n")
+  # for i in range(len(jobs)): 
+  #   printjob(next(con))               
+
+  con.send(("remove","iron", 44))
+  for i in range(len(jobs)): 
+    printjob(next(con))
+
+  # con.send(("remove","wash", 11))
+  # for i in range(len(jobs)): 
+  #   printjob(next(con))
+
+  print ("\nProducer Done.")
+
+
+
+
+
 def main(argv):
-  if len(argv) < 2:
+  
+  int_arg = 0
+  
+  # having fun with some error checking
+  if len(argv) == 1:
     try:
       log_processing("access.log")
     except:
-      print("could not find default access.log")
-      print("Usage: %s <filename>" % argv[0])
-      print("continueing with the rest of the prog")
+      print("could not find local access.log")
+      print(f"Usage: ./{argv[0]} <file_path_to_access.log> <int #>")
+      print("continuing with the rest of the prog with default args")
+  elif len(argv) == 2:
+    print("only passed in 1 argument")
+    print("checking if int")
+    try:
+      int_arg = int(argv[1])
+      print("arg was an int")
+      print("attempting to find/process access.log in local dir")
+      try:
+        log_processing("access.log")
+      except:
+        print("could not find default access.log")
+        print(f"Usage: ./{argv[0]} <file_path_to_access.log> <int #>")
+        print("continuing with the rest of the prog with default args")
+    except:
+      print(argv[1], "is not an int, running with defaul val of 0")
+      int_arg = 0
+      
+      try:
+        print("attempting to arg as access.log path")
+        log_processing(argv[1])
+        
+      except:
+        print(f"could not handle {argv[1]} as filepath to access.log")
+        print(f"attempting to use find access.log in local dir...")
+        try:
+          log_processing("access.log")
+        except:
+          print("could not find default access.log")
+          print(f"Usage: ./{argv[0]} <file_path_to_access.log> <int #>")
+          print("continuing with the rest of the prog with default args")
+  elif len(argv) == 3:
+    try:
+      int_arg = int(argv[2])
+      log_processing(argv[1])  
+    except:
+      print(f"checking backwards args")
+      try:
+        int_arg = int(argv[1])
+        log_processing(argv[2])
+      except:
+        print(f"Bad args.")
+        print(f"Usage: ./{argv[0]} <file_path_to_access.log> <int #>")
+        print("Attempting default args")
+      
+        try:
+          log_processing("access.log")
+        except:
+          print("could not find local access.log")
+          print(f"Usage: ./{argv[0]} <file_path_to_access.log> <int #>")
+          print("continuing with the rest of the prog with default args")
+      
   else:
-    log_processing(argv[1])
+    print(f"Usage: ./{argv[0]} <file_path_to_access.log> <int #>")
+    return
+  
   
   vals = list()
   
+  # Part 2
   # get list of values from text file
   try:
     with open('act06.data', "r") as fin:
@@ -149,40 +280,26 @@ def main(argv):
     print("\nMean of vals is: ", my_mean(lambda x: x > 0, vals))
     print("stdev of vals is: ", my_sd(lambda x: x > 0, vals))
     
-    
-    
-    
-    
-    # print("Here's the even values from the file:")
-    # Different way of printing it in groups of 10:
-    # line_count = 0
-    
-    # for val in my_filter(lambda x: (x % 2) == 0, vals):
-    #   print(val, end=" ")
-    #   line_count = line_count+1
-    #   if (line_count % 10 == 0):
-    #     print()
-    #     line_count = 0
-    
-    # print()
         
   except:
-    print("error loading vals or opening file")
+    print("error loading vals or opening file act06.data file")
+    print("skipping this section")
+  
+
+  # part 3
+
+  print(f"\n\nPart 3.")
+  print("***************************")
+  print(f"Cmdline arg: {int_arg}")
+  
+  jobs = [("wash", 11+int_arg),("dry",22+int_arg),("fold",33+int_arg)]        # mutable list
+
+  # con = consumer(jobs)                   # start the consumer 
+  producer(jobs)                   # start the producer
     
 
     
 
-  # print("\nPrint values in file:")
-  # print("=====================")
-  # print(values)
-  # print("\nPrint the square of the values in file:")
-  # print("=========================================")
-  # squared = my_map(lambda x: x * x, values)
-  # print(squared)
-  # print("\nPrint the successor (value + 1) of the values in file:")
-  # print("========================================================")  
-  # successor = my_map(lambda x: x + 1, values)
-  # print(successor)
 
 if __name__ == '__main__':
     main(argv)
