@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Name: Michael Kausch
 Date: 4/13/23
@@ -50,42 +50,59 @@ def log_processing(fname):
   # sorted_ips = list()
   total_bytes = 0
   rows_read = 0
+  words = []
+  split_sum = 0
+  data_count = 0
   
   
   # go through every line in file
   for line in input:
     # use regex to extract ip and bytes to ip
+    # print("got a new line")
+    # words = line.split()
     rows_read = rows_read + 1
-    ip = re.findall("([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}).*200 ([0-9]+)",line)
-    byte_info = re.findall("200 ([0-9]+)",line)
+    ip = re.findall("([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})",line)
+    # print(ip)
+    byte_info = re.findall("(200|301|302|304|400|401|403|404|408|499|500|502|504) ([0-9]+) ",line)
     
-    # print(len(ip))
-    # print(ip[0])
+    # print("len(ip):",len(ip))
     if (len(ip) < 1):
-      # print("len was < 0")
+      # print("len was < 1")
       continue
 
     
     # grab frequencies of ip addresses to dict
-    ip_addresses[ip[0][0]] = ip_addresses.get(ip[0][0],0) + 1
+    ip_addresses[ip[0]] = ip_addresses.get(ip[0],0) + 1
+    # print("added the ip address")
     
     try:
-      total_bytes = total_bytes + int(byte_info[0])
+      total_bytes += int(byte_info[0][1])
+      data_count += 1
     except:
-      print (f"could not add {byte_info[0]}")
-  
+      # print (f"len(byte_info): {len(byte_info)}")
+      print(f"byte_info: {byte_info}")
+      print(f"line: {line}") # debug
+      # print (f"words[11]: {words[11]}")
+
+    # try:
+    #   split_sum += int(words[11])
+    # except:
+    #   print(f"couldn't caste {words[11]} to an int")
   
   # list comprehension to generate sorted list of all items in dict
+  # print("made it to sorting ips")
   sorted_ips = sorted([(v,k) for (k,v) in ip_addresses.items()], reverse=True)
-  
+  # print(len(words))
+  # print(words[2], words[11]) # ip, bytes
   
   
   print("Part 1.")
   print("***************************")
   print(f"lines read: {rows_read}")
-  # print(f"total columns read: ")
+  print(f"data_count: {data_count}")
   
   print(f"\n\nTotal Bytes Transferred: ((( {total_bytes} )))\n\n")
+  # print(f"split sum: {split_sum}")
   
   print(f"***The 5 Most Common IP Addresses***\n")
   print(f"***     IP\t----\tCount ***")
@@ -201,12 +218,12 @@ def main(argv):
   
   # having fun with some error checking
   if len(argv) == 1:
-    try:
+    # try:
       log_processing("access.log")
-    except:
-      print("could not find local access.log")
-      print(f"Usage: ./{argv[0]} <file_path_to_access.log> <int #>")
-      print("continuing with the rest of the prog with default args")
+    # except:
+      # print("could not find local access.log")
+      # print(f"Usage: ./{argv[0]} <file_path_to_access.log> <int #>")
+      # print("continuing with the rest of the prog with default args")
   elif len(argv) == 2:
     print("only passed in 1 argument")
     print("checking if int")
