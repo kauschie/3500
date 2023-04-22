@@ -61,8 +61,6 @@ public class MainPoint {
         Point point;
         int coords[] = new int [2];
 
-        
-        // priming read from infile
         line = infile.readLine();
         while (line != null) {
             // System.out.println("**New Point**");
@@ -103,11 +101,10 @@ public class MainPoint {
             for (int j = 0; j < points.size(); j++) {
                 // res_count++;
                 if (i == j) {
-                    // 2d array should be symmetric about the diagonal
                     resultants[i][j] = -1;
                     // break;
-                // } else if (resultants[j][i] != -2) {
-                //     resultants [i][j] = resultants [j][i];
+                } else if (resultants[j][i] != -2) {
+                    resultants [i][j] = resultants [j][i];
                 } else {
                     resultants[i][j] = (int)Math.round(points.get(i).distance(points.get(j)));
                 }
