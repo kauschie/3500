@@ -4,6 +4,8 @@
 // Originally written by Professor Morales
 // Works with MainAccount.java
 
+// int input only
+
 public class Account {
 
     private double balance;
