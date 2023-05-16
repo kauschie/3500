@@ -44,9 +44,9 @@
                 (getMaxLength (cdr list1) (+ 1 current_length) (max (+ 1 current_length) current_max)))
             ; if car is another list, recursively call and compar size to biggest tree
             ((listp (car list1))
-                ; set subt to size
-                (let ((subt (getMaxLength (car list1) 0 current_max)))
-                    (setq biggest_tree (max subt biggest_tree)))
+                ; set sub_tree to size
+                (let ((sub_tree (getMaxLength (car list1) 0 current_max)))
+                    (setq biggest_tree (max sub_tree biggest_tree)))
                 ; recursively call looking at next element
                 (getMaxLength (cdr list1) (+ 1 current_length) biggest_tree)))))
 
