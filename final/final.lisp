@@ -103,7 +103,7 @@
 (print (sublen '(a (a b) (a b c) (a b c (d e) f))))
 (terpri)
 
-(print "Test sublen")
+(print "Test intercalate")
 (print "--------------------")
 (print "print (intercalate '(1) '(3))")
 (print (intercalate '(1) '(3)))
