@@ -24,7 +24,7 @@
   (terpri)
   (let ((opt (read))) 
     (case opt
-        (1  (unique-words "infile.data" "outfile2.data")
+        (1  (unique-words "infile.data" "outfile.data")
             (options))
         (2  (print-q2-header)
             (reverse-list '(1))
@@ -119,7 +119,9 @@
 ; prints the header for q2 (cleaner menu)
 (defun print-q2-header ()
     (print "Test Recursive Reverse:")
-  (print "-----------------------"))
+  (print "-----------------------")
+  (terpri)
+)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
